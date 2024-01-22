@@ -143,7 +143,7 @@ function LeafletPreviewController() {
   }
 
   function changeZoom(event) {
-    document.documentElement.style.setProperty('--font-scale', event.target.value);
+    document.documentElement.style.setProperty('--font-scale', (event.target.value / 100).toString());
   }
 
   this.uploadFilesInput = document.querySelector("input[type='file']");
