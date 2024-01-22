@@ -53,6 +53,22 @@
         },
         {
           "type": "copy",
+          "src": "lwa/app/images/accordion-open.svg",
+          "target": "./docs/app/images/accordion-open.svg",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/images/accordion-close.svg",
+          "target": "./docs/app/images/accordion-close.svg",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
           "src": "lwa/app/js/services/XMLDisplayService",
           "target": "./docs/app/js/services/XMLDisplayService",
           "options": {
