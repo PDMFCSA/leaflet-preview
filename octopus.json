@@ -45,6 +45,14 @@
         },
         {
           "type": "copy",
+          "src": "lwa/app/images/app-icon.png",
+          "target": "./docs/images/app-icon.png",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
           "src": "lwa/app/js/services/XMLDisplayService",
           "target": "./docs/js/services/XMLDisplayService",
           "options": {
