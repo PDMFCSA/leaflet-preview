@@ -1,0 +1,101 @@
+{
+  "workDir": ".",
+  "dependencies": [
+    {
+      "name": "lwa",
+      "src": "https://github.com/axiologic-pla/LWA.git",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": ".",
+          "collectLog": false
+        },
+        {
+          "type": "execute",
+          "cmd": "cd lwa && npm install"
+        }
+      ]
+    },
+    {
+      "name": "lwa-common-deps",
+      "actions": [
+        {
+          "type": "copy",
+          "src": "lwa/app/css/leaflet.css",
+          "target": "./docs/css/leaflet.css",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/css/prerequisites.css",
+          "target": "./docs/css/prerequisites.css",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/fonts",
+          "target": "./docs/fonts",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/js/services/XMLDisplayService",
+          "target": "./docs/js/services/XMLDisplayService",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/js/utils/leafletUtils.js",
+          "target": "./docs/js/utils/leafletUtils.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/app/js/utils/CustomError.js",
+          "target": "./docs/js/utils/CustomError.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/utils.js",
+          "target": "./utils.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/constants.js",
+          "target": "./constants.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/environment.js",
+          "target": "./environment.js",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "remove",
+          "target": "./lwa"
+        }
+      ]
+    }
+  ]
+}
