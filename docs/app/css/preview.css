@@ -138,11 +138,12 @@ body {
     flex-grow: 1;
 }
 
-.leaflet-preview-container {
+.page-container .leaflet-preview-container {
     overflow: auto;
     width: 100%;
     height: 100%;
     background: #152E36;
+    font-size: var(--font-size--basic);
 }
 
 #settings-modal {
