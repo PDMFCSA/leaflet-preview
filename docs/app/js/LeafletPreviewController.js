@@ -153,6 +153,8 @@ function LeafletPreviewController() {
   this.changeLang = document.querySelector("#leafletLanguage");
   this.portraitBtn = document.querySelector(".orientation-img.portrait");
   this.landscapeBtn = document.querySelector(".orientation-img.landscape");
+  this.productName = document.querySelector(".product-name-container input");
+  this.productDescription = document.querySelector(".product-description-container textarea");
   this.portraitBtn.addEventListener("click", toggleOrientation)
   this.landscapeBtn.addEventListener("click", toggleOrientation)
 
@@ -161,6 +163,12 @@ function LeafletPreviewController() {
   this.changeViewport.addEventListener("change", changeViewport);
   this.changeZoom.addEventListener("change", changeZoom);
   this.changeLang.addEventListener("change", changeViewport);
+  this.productName.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = this.productName.value;
+  })
+  this.productName.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = this.productDescription.value;
+  })
   // this.changeOrientation.addEventListener("change", changeViewport);
 
   this.uploadFilesBtn.addEventListener("click", (event) => {
@@ -179,8 +187,8 @@ function LeafletPreviewController() {
     let {xmlContent, leafletImages} = await renderFileList(files);
     let leafletData = {
       productData: {
-        name: document.querySelector(".product-name-container input").value || "Unset Brand/invented name",
-        description: document.querySelector(".product-description-container textarea").value || "Unset Name of Medicinal Product",
+        name: this.productName.value || "Unset Brand/invented name",
+        description: this.productDescription.value || "Unset Name of Medicinal Product",
       },
       leafletImages,
       xmlContent
@@ -269,9 +277,6 @@ window.onload = async (event) => {
 }
 
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-let epiDomain = urlParams.get("setdomain") || localStorage.getItem(constants.EPI_DOMAIN) || environment.epiDomain;
-localStorage.setItem(constants.EPI_DOMAIN, epiDomain);
 
 
 window.uploadController = uploadController;
