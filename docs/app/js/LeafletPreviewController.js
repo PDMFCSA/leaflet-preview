@@ -105,6 +105,16 @@ const languages = [
 ];
 
 function LeafletPreviewController() {
+  this.productName = document.querySelector(".product-name-container input");
+  this.productDescription = document.querySelector(".product-description-container textarea");
+  
+  this.productName.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = this.productName.value;
+  })
+  this.productName.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = this.productDescription.value;
+  })
+
 
   function getViewPortData() {
     const selectedSize = document.getElementById('viewportSelector').value.split('x');
@@ -153,8 +163,6 @@ function LeafletPreviewController() {
   this.changeLang = document.querySelector("#leafletLanguage");
   this.portraitBtn = document.querySelector(".orientation-img.portrait");
   this.landscapeBtn = document.querySelector(".orientation-img.landscape");
-  this.productName = document.querySelector(".product-name-container input");
-  this.productDescription = document.querySelector(".product-description-container textarea");
   this.portraitBtn.addEventListener("click", toggleOrientation)
   this.landscapeBtn.addEventListener("click", toggleOrientation)
 
@@ -163,12 +171,6 @@ function LeafletPreviewController() {
   this.changeViewport.addEventListener("change", changeViewport);
   this.changeZoom.addEventListener("change", changeZoom);
   this.changeLang.addEventListener("change", changeViewport);
-  this.productName.addEventListener("change", () => {
-    document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = this.productName.value;
-  })
-  this.productName.addEventListener("change", () => {
-    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = this.productDescription.value;
-  })
   // this.changeOrientation.addEventListener("change", changeViewport);
 
   this.uploadFilesBtn.addEventListener("click", (event) => {
