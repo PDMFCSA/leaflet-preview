@@ -105,16 +105,16 @@ const languages = [
 ];
 
 function LeafletPreviewController() {
-  this.productName = document.querySelector(".product-name-container input");
-  this.productDescription = document.querySelector(".product-description-container textarea");
-  
-  this.productName.addEventListener("change", () => {
-    document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = this.productName.value;
-  })
-  this.productName.addEventListener("change", () => {
-    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = this.productDescription.value;
+  let productName = document.querySelector(".product-name-container input");
+  let productDescription = document.querySelector(".product-description-container textarea");
+
+  productName.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = productName.value;
   })
 
+  productDescription.addEventListener("change", () => {
+    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = productDescription.value;
+  })
 
   function getViewPortData() {
     const selectedSize = document.getElementById('viewportSelector').value.split('x');
@@ -189,8 +189,8 @@ function LeafletPreviewController() {
     let {xmlContent, leafletImages} = await renderFileList(files);
     let leafletData = {
       productData: {
-        name: this.productName.value || "Unset Brand/invented name",
-        description: this.productDescription.value || "Unset Name of Medicinal Product",
+        name: productName.value || "Unset Brand/invented name",
+        description: productDescription.value || "Unset Name of Medicinal Product",
       },
       leafletImages,
       xmlContent
@@ -236,7 +236,6 @@ function LeafletPreviewController() {
     }
     return {xmlContent, leafletImages}
   }
-
 
   this.uploadFileHandler = async (event) => {
     document.querySelector('#settings-modal').classList.add("hiddenElement");
