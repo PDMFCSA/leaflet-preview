@@ -128,10 +128,11 @@ function goToErrorPage(errorCode, error) {
 
 function setTextDirectionForLanguage(lang, selector) {
   let elementSelector = selector || "body";
+  document.querySelector(elementSelector).setAttribute("app-lang", lang);
   if (constants.rtlLangCodes.find((rtlLAng) => rtlLAng === lang)) {
-    document.querySelector(elementSelector).setAttribute("dir", "RTL")
+    document.querySelector(elementSelector).setAttribute("dir", "RTL");
   } else {
-    document.querySelector(elementSelector).setAttribute("dir", "LTR")
+    document.querySelector(elementSelector).setAttribute("dir", "LTR");
   }
 }
 

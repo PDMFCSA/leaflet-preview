@@ -3,6 +3,7 @@
 html {
     height: 100%;
     font-size: 62.5%; /*!* (62.5/100) * 16px = 10px *!*/
+    font-family: "Noto Sans";
 }
 
 body {
@@ -13,6 +14,30 @@ body {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     margin: 0;
+}
+
+button {
+    font-family: "Noto Sans";
+}
+
+*[app-lang="ko"],
+*[app-lang="ko"] button {
+    font-family: "Noto Sans", "Noto Sans Korea"
+}
+
+*[app-lang="zh"],
+*[app-lang="zh"] button {
+    font-family: "Noto Sans", "Noto Sans China"
+}
+
+*[app-lang="ja"],
+*[app-lang="ja"] button {
+    font-family: "Noto Sans", "Noto Sans Japan"
+}
+
+*[app-lang="ar"],
+*[app-lang="ar"] button {
+    font-family: "Noto Sans", "Noto Sans Arab"
 }
 
 .page-container {
