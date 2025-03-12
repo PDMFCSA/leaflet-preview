@@ -116,8 +116,20 @@
           }
         },
         {
-          "type": "remove",
-          "target": "./lwa"
+          "type": "copy",
+          "src": "lwa/GS1DigitalLinkToolkit",
+          "target": "./docs/GS1DigitalLinkToolkit",
+          "options": {
+            "overwrite": true
+          }
+        },
+        {
+          "type": "copy",
+          "src": "lwa/interpretGS1scan",
+          "target": "./docs/interpretGS1scan",
+          "options": {
+            "overwrite": true
+          }
         }
       ]
     }

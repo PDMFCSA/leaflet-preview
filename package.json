@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axiologic-pla/leaflet-preview.git"
+    "url": "git+https://github.com/pharmaledgerassoc/leaflet-preview.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axiologic-pla/leaflet-preview.git/issues"
+    "url": "https://github.com/pharmaledgerassoc/leaflet-preview.git/issues"
   },
-  "homepage": "https://github.com/axiologic-pla/leaflet-preview.git#readme",
+  "homepage": "https://github.com/pharmaledgerassoc/leaflet-preview.git#readme",
   "dependencies": {
     "octopus": "git+http://github.com/opendsu/octopus.git"
   }
