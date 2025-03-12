@@ -3,7 +3,7 @@
   "dependencies": [
     {
       "name": "lwa",
-      "src": "https://github.com/axiologic-pla/LWA.git",
+      "src": "https://github.com/pharmaledgerassoc/LWA.git",
       "actions": [
         {
           "type": "smartClone",
