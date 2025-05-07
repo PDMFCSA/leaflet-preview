@@ -54,6 +54,16 @@
                     <!-- options from languages list on load-->
                 </select>
             </div>
+            <div class="leaflet-recalled-container">
+                <div class="lealfet-recalled-type">
+                    <div class="form-label">Product recalled</div>
+                    <input id="productRecalled" class="form-control" placeholder="Product recalled flag name" type="checkbox"/>
+                </div>
+                <div class="lealfet-recalled-type">
+                    <div class="form-label">Batch recalled</div>
+                    <input id="batchRecalled" class="form-control" placeholder="Batch recalled flag name" type="checkbox"/>
+                </div>
+            </div>
             <div class="file-upload-container">
                 <div>
                     <div class="files-list">
@@ -93,8 +103,11 @@
                             <div id="leaflet-content">
                             </div>
                         </div>
-
                     </div>
+                    
+                </div>
+                <div id="recalled-bar">
+                    <p id="recalled-bar-content" translate="leaflet_recalled_product"></p>
                 </div>
             </div>
         </div>

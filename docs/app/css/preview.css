@@ -43,7 +43,6 @@ button {
 .page-container {
     height: 100%;
     position: relative;
-    display: flex;
     flex-direction: column;
     background: var(--olivegreen);
     overflow: hidden;
@@ -107,6 +106,7 @@ button {
 .product-name-container,
 .product-description-container,
 .leaflet-language-container,
+.leaflet-recalled-container,
 .file-upload-container {
     margin: 0px 18px;
 }

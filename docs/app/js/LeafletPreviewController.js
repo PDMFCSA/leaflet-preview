@@ -1,8 +1,9 @@
 import {setTextDirectionForLanguage, updateFontZoom} from "../../utils.js"
-
 import environment from "../../environment.js";
 import constants from "../../constants.js";
-import {getFileContent, getFileContentAsBuffer, getImageAsBase64, renderLeaflet} from "./utils/leafletUtils.js";
+// import {getFileContent, getFileContentAsBuffer, getImageAsBase64} from "./utils/leafletUtils.js";
+import { renderLeaflet, upperCaseProductDescriptionProductName, getFileContent, getFileContentAsBuffer,getImageAsBase64 } from "../../lwa/js/utils/leafletUtils.js";
+import { translate, getTranslation } from "../../lwa/js/translationUtils.js";
 
 let uploadedFiles = [];
 const devices = [
@@ -110,10 +111,14 @@ function LeafletPreviewController() {
 
   productName.addEventListener("change", () => {
     document.querySelector(".leaflet-preview-container .page-header .product-name").innerText = productName.value;
+    const prodDescription = upperCaseProductDescriptionProductName(productDescription.value, productName.value);
+    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = prodDescription;
+
   })
 
   productDescription.addEventListener("change", () => {
-    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = productDescription.value;
+    const prodDescription = upperCaseProductDescriptionProductName(productDescription.value, productName.value);
+    document.querySelector(".leaflet-preview-container .page-header .product-description").innerText = prodDescription;
   })
 
   function getViewPortData() {
@@ -190,7 +195,7 @@ function LeafletPreviewController() {
     let leafletData = {
       productData: {
         name: productName.value || "Unset Brand/invented name",
-        description: productDescription.value || "Unset Name of Medicinal Product",
+        description: upperCaseProductDescriptionProductName(productDescription.value, productName.value) || "Unset Name of Medicinal Product",
       },
       leafletImages,
       xmlContent
@@ -253,6 +258,33 @@ function LeafletPreviewController() {
   }
 
   this.uploadFilesInput.addEventListener('change', this.uploadFileHandler);
+
+  this.productRecalled = document.getElementById('productRecalled');
+  this.batchRecalled = document.getElementById('batchRecalled');
+
+  this.productRecalled.addEventListener('change', function() {
+    const recalledBar = document.querySelector('#recalled-bar');
+    if (productRecalled.checked) {
+      recalledBar.classList.add('visible');
+      recalledBar.querySelector('#recalled-bar-content').textContent =  batchRecalled.checked ?  getTranslation('leaflet_recalled_batch') : getTranslation('leaflet_recalled_product');
+    } else {
+      if(!batchRecalled.checked)
+        recalledBar.classList.remove('visible');
+    }
+  });
+  this.batchRecalled.addEventListener('change', function() {
+    const recalledBar = document.querySelector('#recalled-bar');
+    if (batchRecalled.checked) {
+      recalledBar.classList.add('visible');
+      recalledBar.querySelector('#recalled-bar-content').textContent = getTranslation('leaflet_recalled_batch');
+    } else {
+      if(productRecalled.checked){
+        recalledBar.querySelector('#recalled-bar-content').textContent = getTranslation('leaflet_recalled_product');
+        return;
+      }
+      recalledBar.classList.remove('visible');
+    }
+  });
 }
 
 
@@ -260,6 +292,7 @@ const uploadController = new LeafletPreviewController();
 
 window.onload = async (event) => {
   //set device select options
+  await translate();
   let options = '';
   devices.forEach(device => {
     options = options + `<option value=${device.resolution}>${device.deviceName} (${device.resolution})</option>`
