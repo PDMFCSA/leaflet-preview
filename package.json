@@ -8,7 +8,7 @@
   },
   "scripts": {
     "do-install": "git clone --depth=1 https://github.com/PDMFCSA/LWA.git lwa  && mkdir -p docs/lwa && cp -r lwa/app/* docs/lwa/ && cp lwa/utils.js docs",
-    "deploy-page": "git clone --depth=1 https://github.com/PDMFCSA/LWA.git lwa  && mkdir -p docs/lwa && cp -r lwa/app/* docs/lwa/ && cp lwa/utils.js docs && cp -r lwa/workdocs/ docs/",
+    "deploy-page": "git clone --depth=1 https://github.com/PDMFCSA/LWA.git lwa  && mkdir -p docs/lwa && cp -r lwa/app/* docs/lwa/ && cp lwa/utils.js docs && cp -r lwa/workdocs/accessability docs/",
     "test": "node bin/server.js",
     "postinstall": "node ./node_modules/octopus/scripts/run dependencies devmode"
   },
